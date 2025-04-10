@@ -49,7 +49,7 @@ export default function RootLayout({
                 Providing exceptional childcare and preschool services since 2001. Our nurturing environment helps children grow, learn, and thrive.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-emerald-400">Location</h3>
                 <p className="text-gray-400">Bisley Base</p>
@@ -57,26 +57,6 @@ export default function RootLayout({
                 <p className="text-gray-400">Benner Lane</p>
                 <p className="text-gray-400">West End</p>
                 <p className="text-gray-400">GU24 9JQ</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-4 text-emerald-400">Programs</h3>
-                <ul className="space-y-2">
-                  <li><Link href="/programs/preschool" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300">Preschool</Link></li>
-                  <li><Link href="/programs/after-school" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300">After School Club</Link></li>
-                  <li><Link href="/programs/breakfast" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300">Breakfast Club</Link></li>
-                  <li><Link href="/programs/holiday-club" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300">Holiday Club</Link></li>
-                  <li><Link href="/programs/wraparound" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300">Wraparound Care</Link></li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-4 text-emerald-400">Quick Links</h3>
-                <ul className="space-y-2">
-                  <li><Link href="/about" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300">About Us</Link></li>
-                  <li><Link href="/parents/admissions" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300">Admissions</Link></li>
-                  <li><Link href="/parents/fees" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300">Fees</Link></li>
-                  <li><Link href="/news" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300">News</Link></li>
-                  <li><Link href="/gallery" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300">Gallery</Link></li>
-                </ul>
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-emerald-400">Contact</h3>
@@ -108,9 +88,7 @@ export default function RootLayout({
             <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between text-gray-400 text-sm">
               <p>&copy; {new Date().getFullYear()} Bisley Base Ltd. All rights reserved.</p>
               <div className="flex space-x-6 mt-4 md:mt-0">
-                <Link href="/privacy-policy" className="hover:text-emerald-400 transition-colors duration-300">Privacy Policy</Link>
-                <Link href="/terms" className="hover:text-emerald-400 transition-colors duration-300">Terms & Conditions</Link>
-                <Link href="/sitemap.xml" className="hover:text-emerald-400 transition-colors duration-300">Sitemap</Link>
+                <Link href="/" className="hover:text-emerald-400 transition-colors duration-300">Home</Link>
               </div>
             </div>
           </div>

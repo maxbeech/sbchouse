@@ -39,42 +39,6 @@ const Navbar = () => {
   // Navigation structure with dropdown menus
   const navigation = [
     { name: 'Home', href: '/' },
-    {
-      name: 'About Us',
-      href: '/about',
-      children: [
-        { name: 'Our Story', href: '/about' },
-        { name: 'Our Team', href: '/about/team' },
-        { name: 'Facilities', href: '/about/facilities' },
-        { name: 'Values & Mission', href: '/about/values' },
-        { name: 'Ofsted', href: '/about/ofsted' },
-      ],
-    },
-    {
-      name: 'Programs & Services', 
-      href: '/programs',
-      children: [
-        { name: 'Holiday Club', href: '/programs/holiday-club' },
-        { name: 'After School Club', href: '/programs/after-school' },
-        { name: 'Breakfast Club', href: '/programs/breakfast' },
-        { name: 'Preschool', href: '/programs/preschool' },
-        { name: 'Wraparound Care', href: '/programs/wraparound' },
-      ],
-    },
-    {
-      name: 'Parents',
-      href: '/parents',
-      children: [
-        { name: 'Admissions', href: '/parents/admissions' },
-        { name: 'Fees', href: '/parents/fees' },
-        { name: 'FAQs', href: '/parents/faqs' },
-        { name: 'Policies', href: '/parents/policies' },
-        { name: 'Term Dates', href: '/parents/term-dates' },
-      ],
-    },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'News', href: '/news' },
-    { name: 'Contact', href: '/contact' },
   ];
 
   return (
