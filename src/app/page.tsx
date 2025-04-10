@@ -470,24 +470,29 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Cafe Section with Parallax */}
+      {/* Cafe Section with Background Image */}
       <section className="relative py-24">
-        <ParallaxImage 
-          src="/media/home_hero_slider/cafe-sbc-house.jpg"
-          alt="SBC Cafe"
-          className="absolute inset-0 h-full"
-          speed={0.3}
-        />
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/media/home_hero_slider/cafe-sbc-house.jpg"
+            alt="SBC Cafe"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        
         {/* Enhanced background overlay with pattern */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a14]/90 to-[#102109]/85 mix-blend-multiply" />
-        <div className="absolute inset-0 opacity-20" 
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a14]/90 to-[#102109]/85 mix-blend-multiply z-10" />
+        <div className="absolute inset-0 opacity-20 z-20" 
           style={{ 
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/svg%3E")`,
             backgroundSize: '40px 40px'
           }}
         />
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-30">
           <div className="max-w-2xl backdrop-blur-sm bg-black/10 p-8 rounded-xl border border-white/10">
             <FadeIn direction="up">
               <div className="bg-[#4C9D43]/20 py-2 px-4 rounded-full w-fit mb-4 border border-[#4C9D43]/40">
