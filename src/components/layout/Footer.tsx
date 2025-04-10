@@ -1,215 +1,178 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { FaFacebookF, FaInstagram, FaPinterestP, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { MdPhone, MdEmail, MdLocationOn, MdAccessTime } from 'react-icons/md';
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 
-export default function Footer() {
+// Define the navigation structure for sitemap generation
+export const siteNavigation = {
+  main: [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Facilities', href: '/facilities' },
+    { name: 'SBC Cafe', href: '/cafe' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
+  ],
+  services: [
+    { name: 'Offices', href: '/facilities/offices' },
+    { name: 'Storage Units', href: '/facilities/storage' },
+    { name: 'Virtual Office', href: '/facilities/virtual-office' },
+    { name: 'Workshop Units', href: '/facilities/workshop' },
+  ],
+  legal: [
+    { name: 'Privacy Policy', href: '/privacy-policy' },
+    { name: 'Terms & Conditions', href: '/terms' },
+    { name: 'Sitemap', href: '/sitemap' },
+  ]
+};
+
+const Footer = () => {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
-  
-  const footerAnimation = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.1,
-        duration: 0.5,
-      },
-    },
-  };
-
-  const footerAnimationDelayed = (delay: number) => ({
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay,
-        duration: 0.5,
-      },
-    },
-  });
 
   return (
-    <footer className="bg-primary text-white">
-      <div className="container mx-auto px-4">
-        {/* Main footer content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Column 1: About */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={footerAnimation}
-          >
-            <h3 className="text-xl font-serif font-medium mb-6">Bookham Kitchens</h3>
-            <p className="text-gray-300 mb-4">
-              Family-run kitchen design and installation specialists in Surrey, providing bespoke solutions tailored to your needs.
+    <footer className="bg-slate-900 text-white">
+      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Logo and About */}
+          <div className="space-y-4">
+            <div className="flex items-center mb-4">
+              <Image
+                src="/media/logo_icon_only.png"
+                alt="SBC House Logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </div>
+            <p className="text-gray-400 text-sm">
+              Providing flexible solutions to the office, workshop and storage needs
+              of your growing business since 1987.
             </p>
-            <div className="flex space-x-4 mt-6">
+            <div className="flex space-x-4 pt-4">
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full"
+                className="bg-[#4C9D43] p-2 rounded-full text-white hover:bg-[#3E8035] transition-all duration-300"
+                aria-label="Facebook"
               >
-                <FaFacebookF className="h-4 w-4" />
+                <FaFacebookF className="w-4 h-4" />
               </a>
               <a 
-                href="https://instagram.com" 
+                href="https://www.twitter.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full"
+                className="bg-[#4C9D43] p-2 rounded-full text-white hover:bg-[#3E8035] transition-all duration-300"
+                aria-label="Twitter"
               >
-                <FaInstagram className="h-4 w-4" />
+                <FaTwitter className="w-4 h-4" />
               </a>
               <a 
-                href="https://pinterest.com" 
+                href="https://www.linkedin.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full"
+                className="bg-[#4C9D43] p-2 rounded-full text-white hover:bg-[#3E8035] transition-all duration-300"
+                aria-label="LinkedIn"
               >
-                <FaPinterestP className="h-4 w-4" />
+                <FaLinkedinIn className="w-4 h-4" />
               </a>
             </div>
-          </motion.div>
-          
-          {/* Column 2: Services */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={footerAnimationDelayed(0.2)}
-          >
-            <h3 className="text-xl font-serif font-medium mb-6">Services</h3>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-[#4C9D43]">Quick Links</h3>
             <ul className="space-y-3">
-              <li>
-                <Link href="/kitchens/fitted" className="text-gray-300 hover:text-accent transition-colors">
-                  Fitted Kitchens
-                </Link>
-              </li>
-              <li>
-                <Link href="/kitchens/replacement-doors" className="text-gray-300 hover:text-accent transition-colors">
-                  Replacement Doors
-                </Link>
-              </li>
-              <li>
-                <Link href="/kitchens/cabinet-spray-painting" className="text-gray-300 hover:text-accent transition-colors">
-                  Cabinet Spray Painting
-                </Link>
-              </li>
-              <li>
-                <Link href="/home-living/bedroom-cabinets" className="text-gray-300 hover:text-accent transition-colors">
-                  Bedroom Cabinets
-                </Link>
-              </li>
-              <li>
-                <Link href="/home-living/home-office" className="text-gray-300 hover:text-accent transition-colors">
-                  Home Office
-                </Link>
-              </li>
-              <li>
-                <Link href="/building-services/kitchen-installation" className="text-gray-300 hover:text-accent transition-colors">
-                  Kitchen Installation
-                </Link>
-              </li>
+              {siteNavigation.main.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    href={link.href} 
+                    className={`text-gray-400 hover:text-[#4C9D43] transition-colors duration-300 ${
+                      pathname === link.href ? 'text-[#4C9D43]' : ''
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </motion.div>
-          
-          {/* Column 3: Quick Links */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={footerAnimationDelayed(0.3)}
-          >
-            <h3 className="text-xl font-serif font-medium mb-6">Quick Links</h3>
+          </div>
+
+          {/* Our Services */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-[#4C9D43]">Our Services</h3>
             <ul className="space-y-3">
-              <li>
-                <Link href="/portfolio" className="text-gray-300 hover:text-accent transition-colors">
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-gray-300 hover:text-accent transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-gray-300 hover:text-accent transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-300 hover:text-accent transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy-policy" className="text-gray-300 hover:text-accent transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms-of-service" className="text-gray-300 hover:text-accent transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
+              {siteNavigation.services.map((service) => (
+                <li key={service.name}>
+                  <Link 
+                    href={service.href} 
+                    className={`text-gray-400 hover:text-[#4C9D43] transition-colors duration-300 ${
+                      pathname === service.href ? 'text-[#4C9D43]' : ''
+                    }`}
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </motion.div>
-          
-          {/* Column 4: Contact */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={footerAnimationDelayed(0.4)}
-          >
-            <h3 className="text-xl font-serif font-medium mb-6">Contact Us</h3>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-[#4C9D43]">Contact Info</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <FaMapMarkerAlt className="h-5 w-5 text-accent mr-3 mt-1" />
-                <span className="text-gray-300">
-                  25 Church Road, Great Bookham<br />
-                  Leatherhead, Surrey<br />
-                  KT23 3PG
+                <MdLocationOn className="text-[#4C9D43] mr-3 mt-1 flex-shrink-0 w-5 h-5" />
+                <span className="text-gray-400">
+                  SBC House, Restmor Way, Wallington, SM6 7AH
                 </span>
               </li>
               <li className="flex items-center">
-                <FaPhoneAlt className="h-4 w-4 text-accent mr-3" />
-                <a href="tel:+441932391183" className="text-gray-300 hover:text-accent transition-colors">
-                  01932 391183
-                </a>
+                <MdPhone className="text-[#4C9D43] mr-3 flex-shrink-0 w-5 h-5" />
+                <span className="text-gray-400">020 8255 2040</span>
               </li>
               <li className="flex items-center">
-                <FaEnvelope className="h-4 w-4 text-accent mr-3" />
-                <a href="mailto:sales@bookhamkitchens.co.uk" className="text-gray-300 hover:text-accent transition-colors">
-                  sales@bookhamkitchens.co.uk
+                <MdEmail className="text-[#4C9D43] mr-3 flex-shrink-0 w-5 h-5" />
+                <a 
+                  href="mailto:info@sbc-house.com" 
+                  className="text-gray-400 hover:text-[#4C9D43] transition-colors duration-300"
+                >
+                  info@sbc-house.com
                 </a>
               </li>
+              <li className="flex items-start">
+                <MdAccessTime className="text-[#4C9D43] mr-3 mt-1 flex-shrink-0 w-5 h-5" />
+                <div className="text-gray-400">
+                  <p>Monday–Friday:</p>
+                  <p>08:00–17:30</p>
+                </div>
+              </li>
             </ul>
-            <div className="mt-6">
-              <h4 className="text-sm font-medium mb-2">Opening Hours</h4>
-              <p className="text-gray-300 text-sm">
-                Monday - Friday: 9:00am - 5:30pm<br />
-                Saturday: 9:00am - 4:00pm<br />
-                Sunday: Closed
-              </p>
-            </div>
-          </motion.div>
+          </div>
         </div>
-        
-        {/* Bottom bar */}
-        <div className="py-6 border-t border-white/10 text-sm text-gray-400">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>© {currentYear} Bookham Kitchens. All rights reserved.</p>
-            <p className="mt-2 md:mt-0">
-              Designed with <span className="text-accent">♥</span> in Surrey
-            </p>
+
+        {/* Bottom Footer */}
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between text-gray-400 text-sm">
+          <p>&copy; {currentYear} SBC House. All rights reserved.</p>
+          <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
+            {siteNavigation.legal.map((link) => (
+              <Link 
+                key={link.name}
+                href={link.href} 
+                className="hover:text-[#4C9D43] transition-colors duration-300"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
     </footer>
   );
-} 
+};
+
+export default Footer; 
