@@ -38,8 +38,8 @@ export default function FoxLogo({
       variants={logoVariants}
     >
       <Image
-        src="/images/fox-logo.svg"
-        alt="Grafton Fox Logo"
+        src="/media/logo_icon_only.png"
+        alt="SBC House Logo"
         width={width}
         height={height}
         className="h-auto w-auto"
