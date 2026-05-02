@@ -1,8 +1,9 @@
 {
+  "ignoreCommand": "[ \"$VERCEL_ENV\" = \"preview\" ] && exit 0; ! git diff HEAD~1 --name-only | grep -qE '^(src/|app/|components/|lib/|public/|content/|package\\.json|vercel\\.json|next\\.config|tailwind)'",
   "builds": [
     {
       "src": "package.json",
       "use": "@vercel/next"
     }
   ]
-} 
+}
